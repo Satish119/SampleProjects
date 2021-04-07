@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.test.weather_app.views.HomeFragment"
+        android:label="Weather"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_cityFragment"
+            app:destination="@id/cityFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addLocationFragment"
+            app:destination="@id/addLocationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cityFragment"
+        android:name="com.test.weather_app.views.city.CityFragment"
+        android:label="City - Weather"
+        tools:layout="@layout/fragment_city" >
+        <action
+            android:id="@+id/action_cityFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <argument
+            android:name="cityName"
+            app:argType="string" />
+        <argument
+            android:name="temp"
+            app:argType="float" />
+    </fragment>
+    <fragment
+        android:id="@+id/addLocationFragment"
+        android:name="com.test.weather_app.AddLocationFragment"
+        android:label="Add Location"
+        tools:layout="@layout/fragment_add_location">
+        <action
+            android:id="@+id/action_addLocationFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+
+    </fragment>
+</navigation>
